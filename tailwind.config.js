@@ -4,8 +4,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      'rajdhani': ['Rajdhani'],
-      'playfair Display': ['Playfair Display']
+      fontFamily: {
+        'rajdhani': 'Rajdhani',
+        'playfair': 'Playfair Display',
+        'Fredericka': 'Fredericka the Great'
+      }
     },
   },
   plugins: [],
