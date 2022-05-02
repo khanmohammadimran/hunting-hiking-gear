@@ -5,7 +5,7 @@ import Equipment from '../Equipment/Equipment';
 const Equipments = () => {
     const [equipments] = useCustomHook();
     return (
-        <div className='bg-white'>
+        <div className="bg-[url('/src/images/equipemnt-homepage-background.png')]">
             <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>See the all essential hiking equipments</h2>
             <div className='md:grid grid-cols-3 gap-4 py-8'>
                 {

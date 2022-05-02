@@ -11,6 +11,7 @@ import AddItems from './Pages/AddItems/AddItems';
 import ManageItems from './Pages/ManageItems/ManageItems';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import Notfound from './Pages/NotFound/Notfound';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/additems' element={<AddItems></AddItems>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
