@@ -27,8 +27,8 @@ const Register = () => {
     }
     return (
         <div className="bg-[url('/src/images/equipemnt-homepage-background.png')]">
-            <div>
-                <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>Welcome! Please Signup</h2>
+            <div className='pb-8'>
+                <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>Welcome to Hiking Equipment! Please Signup</h2>
                 <form onSubmit={handleSubmit} className='w-1/2 mx-auto bg-white p-8 rounded-lg'>
                     <h2 className='text-center text-3xl pb-8 font-playfair'>Create An Account</h2>
                     <input className='block w-full border-2 p-4 rounded-lg font-playfair' type="email" name="email" placeholder='Enter Your Email' required />
