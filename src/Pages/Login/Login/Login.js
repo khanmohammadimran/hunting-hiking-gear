@@ -21,12 +21,14 @@ const Login = () => {
     if (error) {
         return (
             <div>
-                <p>Error: {error.message}</p>
+                <p><strong class="font-bold text-red-700">Please enter a correct email and password</strong></p>
             </div>
         );
     }
     if (loading) {
-        return <ScaleLoader loading />
+        return (
+            <p className='text-center'><ScaleLoader loading /></p>
+        )
     }
 
 
@@ -41,11 +43,11 @@ const Login = () => {
     }
 
 
-    const navigateRegister = event => {
-        navigate('/register')
-    }
+    // const navigateRegister = event => {
+    //     navigate('/register')
+    // }
     return (
-        <div className="bg-[url('/src/images/equipemnt-homepage-background.png')]">
+        <div className="sm:object-cover bg-[url('/src/images/equipemnt-homepage-background.png')]">
             <div className='pb-8'>
                 <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>Please Login</h2>
                 <form onSubmit={handleSubmit} className='w-1/2 mx-auto bg-white p-8 rounded-lg'>
@@ -54,8 +56,8 @@ const Login = () => {
                     <br />
                     <input value={password} onChange={(e) => setPassword(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" placeholder='Enter Your Password' />
                     <br />
-                    <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
-                    <p className='text-2xl font-playfair pt-6'>New to Hiking Equipment? <Link to='/register' className='cursor-pointer text-blue-800' onClick={navigateRegister}>Please Register</Link> </p>
+                    <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
+                    <p className='text-2xl font-playfair pt-6'>New to Hiking Equipment? <Link to='/register' className='cursor-pointer text-blue-800' >Please Register</Link> </p>
 
                 </form>
             </div>

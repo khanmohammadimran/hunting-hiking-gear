@@ -1,15 +1,22 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { ScaleLoader } from 'react-spinners';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -20,10 +27,20 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password)
     }
 
-    const navigate = useNavigate();
+    if (error) {
+        return (
+            <div>
+                <p><strong class="font-bold text-red-700">Holy smokes!</strong></p>
+            </div>
+        );
+    }
+    if (loading) {
+        return <ScaleLoader loading />
+    }
 
-    const navigateLogin = event => {
-        navigate('/login')
+
+    if (user) {
+        navigate(from, { replace: true });
     }
     return (
         <div className="bg-[url('/src/images/equipemnt-homepage-background.png')]">
@@ -37,8 +54,9 @@ const Register = () => {
                     <br />
                     <input className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" name="confirmPassword" placeholder='Confirm Password' />
                     <br />
-                    <input className='block w-full border-2 p-4 rounded-lg bg-lime-500 text-white text-2xl font-bold font-playfair cursor-pointer' type="submit" value="Register" />
-                    <p className='text-2xl font-playfair pt-6'>Already have an account?? <span onClick={navigateLogin} className='cursor-pointer text-blue-800'>Please Login</span></p>
+                    <input className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' type="submit" value="Register" />
+                    <p className='text-2xl font-playfair pt-6'>Already have an account? <Link to='/login' className='cursor-pointer text-blue-800' >Please Login</Link> </p>
+                    <SocialLogin></SocialLogin>
                 </form>
             </div>
 

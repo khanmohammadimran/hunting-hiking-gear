@@ -12,7 +12,7 @@ const Equipment = (props) => {
             <p className='text-2xl pb-2'> <span className='font-bold'>Quantity:</span> {quantity}</p>
             <p> <span className='font-bold text-2xl pb-2'>Description:</span> <span className='font-sans'>{description}</span></p>
             <div className='flex justify-center pt-3'>
-                <button className='bg-lime-500 px-16 py-2 w-100 rounded-full text-white text-2xl'>Update</button>
+                <button className='bg-lime-500 hover:bg-lime-600 px-16 py-2 w-full rounded-lg text-white text-2xl'>Update</button>
             </div>
         </div>
     );
