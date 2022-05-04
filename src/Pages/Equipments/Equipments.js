@@ -10,7 +10,7 @@ const Equipments = () => {
             <div className='md:grid grid-cols-3 gap-4 py-8'>
                 {
                     equipments.map(equipment => <Equipment
-                        key={equipment.id}
+                        key={equipment._id}
                         equipment={equipment}></Equipment>)
                 }
             </div>
