@@ -36,10 +36,9 @@ const SocialLogin = () => {
                 <span className="flex-shrink mx-4 font-playfair text-2xl">Or</span>
                 <div className="flex-grow border-t border-lime-500"></div>
             </div>
-            <div className='w-full bg-lime-500 flex justify-center align-middle gap-2'>
+            <div className='w-full bg-lime-500 hover:bg-lime-600 flex justify-center align-middle gap-2 rounded-lg cursor-pointer'>
                 <img src={google} className='bg-white rounded-full' alt="" />
-                <button onClick={() => signInWithGoogle()} className='text-white text-3xl font-playfair' >Google Sign in</button>
-                {/* <button onClick={() => signInWithGoogle()} className='bg-lime-500 w-full rounded-lg'> <img src={google} alt="" /><span>Google Sign in</span> </button> */}
+                <button onClick={() => signInWithGoogle()} className='text-white py-2 text-3xl rounded-lg font-playfair'>Google Sign in</button>
             </div>
         </div>
     );

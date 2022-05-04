@@ -12,6 +12,8 @@ import ManageItems from './Pages/ManageItems/ManageItems';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import Notfound from './Pages/NotFound/Notfound';
+import EquipmentDetail from './Pages/EquipmentDetail/EquipmentDetail';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
+        <Route path='/equipment/:equipmentId' element={<RequireAuth>
+          <EquipmentDetail></EquipmentDetail>
+        </RequireAuth>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='/equipments' element={<Equipments></Equipments>}></Route>
         <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>

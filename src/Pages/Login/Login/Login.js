@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ScaleLoader from "react-spinners/ScaleLoader";
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -50,7 +51,7 @@ const Login = () => {
         <div className="sm:object-cover bg-[url('/src/images/equipemnt-homepage-background.png')]">
             <div className='pb-8'>
                 <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>Please Login</h2>
-                <form onSubmit={handleSubmit} className='w-1/2 mx-auto bg-white p-8 rounded-lg'>
+                <form onSubmit={handleSubmit} className='md:w-1/2 sm:w-full mx-auto bg-white p-8 rounded-lg'>
                     <h2 className='text-center text-3xl pb-8 font-playfair'>Login to your account</h2>
                     <input value={email} onChange={(e) => setEmail(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="email" name="email" placeholder='Enter Your Email' required />
                     <br />
@@ -58,7 +59,7 @@ const Login = () => {
                     <br />
                     <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
                     <p className='text-2xl font-playfair pt-6'>New to Hiking Equipment? <Link to='/register' className='cursor-pointer text-blue-800' >Please Register</Link> </p>
-
+                    <SocialLogin></SocialLogin>
                 </form>
             </div>
         </div>
