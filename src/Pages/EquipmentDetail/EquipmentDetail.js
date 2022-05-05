@@ -88,7 +88,7 @@ const EquipmentDetail = () => {
                     </div>
                 </div>
                 <div className='text-center pb-4'>
-                    <button onClick={updateQuantity} className='bg-lime-500 rounded-lg w-1/2 py-2 text-white text-2xl'>Delivered</button>
+                    <button onClick={updateQuantity} className='bg-lime-500 hover:bg-lime-600 rounded-lg w-1/2 py-2 text-white text-2xl'>Delivered</button>
 
                     <div className="relative flex py-5 items-center">
                         <div className="flex-grow border-t border-lime-500"></div>
@@ -98,7 +98,7 @@ const EquipmentDetail = () => {
                     <form onSubmit={handleSubmit}>
                         <input type="number" name="number" placeholder='Restock item Quantity' className=' border w-1/2 py-4 p-2 rounded-lg mb-2 font-sans' />
                         <br />
-                        <input type="submit" value="Restock" className='bg-lime-500 rounded-lg w-1/2 py-2 text-white text-2xl' />
+                        <input type="submit" value="Restock" className='bg-lime-500 hover:bg-lime-600 rounded-lg w-1/2 py-2 text-white text-2xl' />
                     </form>
                 </div>
             </div>

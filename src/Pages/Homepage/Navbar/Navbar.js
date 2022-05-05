@@ -21,11 +21,14 @@ const Navbar = () => {
             </div>
             <ul className={`bg-gray-800 text-white font-playfair text-2xl md:flex justify-center gap-x-8 absolute md:static duration-500 ${click ? 'top10' : 'top-[-225px]'}`}>
                 <li><CustomLink to="/home">Home</CustomLink></li>
-                <li><CustomLink to='/equipments'>Equipments</CustomLink></li>
+                {
+                    user && <>
+                        <li><CustomLink to='/equipments'>Manage Inventories</CustomLink></li>
+                        <li><CustomLink to='/additems'>Add items</CustomLink></li>
+                        <li><CustomLink to='/myitems'>My items</CustomLink></li>
+                    </>
+                }
                 <li><CustomLink to="/blog">Blog</CustomLink></li>
-                <li><CustomLink to='/manageitems'>Manage items</CustomLink></li>
-                <li><CustomLink to='/additems'>Add items</CustomLink></li>
-                <li><CustomLink to='/myitems'>My items</CustomLink></li>
                 {
                     user ?
                         <button onClick={handleSignOut}>Sign Out</button>

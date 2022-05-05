@@ -1,10 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useCustomHook from '../../../Hooks/useCustomHook';
 import Equipment from '../../Equipment/Equipment';
 import Banner from '../Banner/Banner';
 
 const Home = () => {
     const [equipments] = useCustomHook();
+    const navigate = useNavigate();
     return (
         <div>
             <div className='bg-gray-800 text-white'>
@@ -22,6 +24,9 @@ const Home = () => {
                         ></Equipment>)
                     }
                 </div>
+            </div>
+            <div className="text-center py-8">
+                <button onClick={() => navigate('/equipments')} className='bg-lime-500 hover:bg-lime-600 px-16 py-2 w-1/2 rounded-lg text-white text-2xl'>Manage Inventories</button>
             </div>
         </div>
     );

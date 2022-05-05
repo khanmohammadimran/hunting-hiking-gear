@@ -9,7 +9,7 @@ const Equipment = (props) => {
     }
 
     return (
-        <div className='bg-white border-solid border-2 border-gray-800 rounded p-2 font-playfair md:w-11/12 mx-auto'>
+        <div className='bg-white border-solid border-2 border-gray-800 rounded p-2 font-sans md:w-11/12 mx-auto'>
             <img className='sm:object-cover mx-auto md:w-72 text-center pb-5' src={img} alt="" />
             <h2 className='text-2xl pb-2'> <span className='font-bold'>Name:</span> {name}</h2>
             <p className='text-2xl pb-2'> <span className='font-bold'>Price:$ </span>{price}</p>
