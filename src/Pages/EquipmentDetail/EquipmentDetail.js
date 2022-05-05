@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 const EquipmentDetail = () => {
     const { equipmentId } = useParams();
     const [equipment, setEquipment] = useState({});
+    let { quantity } = equipment;
+
+
 
     useEffect(() => {
         const url = `http://localhost:5000/equipment/${equipmentId}`
@@ -14,6 +17,28 @@ const EquipmentDetail = () => {
             .then(data => setEquipment(data))
     }, [])
 
+    const updateQuantity = () => {
+        quantity = parseInt(quantity) - 1;
+
+        const url = `http://localhost:5000/equipment/${equipmentId}`
+        console.log(url)
+        fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                quantity: quantity
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => setEquipment(data))
+            });
+
+    }
 
     return (
         <div className="bg-[url('/src/images/equipemnt-homepage-background.png')] py-8">
@@ -35,8 +60,8 @@ const EquipmentDetail = () => {
                         <p className='pb-1 text-2xl'>Description:</p><span>{equipment.description}</span>
                     </div>
                 </div>
-                <div className='text-center'>
-                    <button className='bg-lime-500 w-1/2 text-2xl font-bold text-white py-2 rounded-lg'>Delivered</button>
+                <div className='text-center pb-4'>
+                    <button onClick={updateQuantity}>Delivered</button>
                 </div>
             </div>
         </div>
