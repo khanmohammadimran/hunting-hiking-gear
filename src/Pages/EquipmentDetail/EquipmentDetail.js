@@ -40,6 +40,33 @@ const EquipmentDetail = () => {
 
     }
 
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        let number = event.target.number.value;
+        number = parseInt(number)
+        quantity = parseInt(quantity) + number;
+        console.log(quantity)
+        const url = `http://localhost:5000/equipment/${equipmentId}`
+        console.log(url)
+        fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify({
+                quantity: quantity
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((json) => {
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => setEquipment(data))
+            });
+    }
+
+
     return (
         <div className="bg-[url('/src/images/equipemnt-homepage-background.png')] py-8">
             <div className='bg-white w-1/2 mx-auto rounded-lg drop-shadow-2xl p-2'>
@@ -61,7 +88,18 @@ const EquipmentDetail = () => {
                     </div>
                 </div>
                 <div className='text-center pb-4'>
-                    <button onClick={updateQuantity}>Delivered</button>
+                    <button onClick={updateQuantity} className='bg-lime-500 rounded-lg w-1/2 py-2 text-white text-2xl'>Delivered</button>
+
+                    <div className="relative flex py-5 items-center">
+                        <div className="flex-grow border-t border-lime-500"></div>
+                        <span className="flex-shrink mx-4 font-playfair text-2xl">Or you can restock item</span>
+                        <div className="flex-grow border-t border-lime-500"></div>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <input type="number" name="number" placeholder='Restock item Quantity' className=' border w-1/2 py-4 p-2 rounded-lg mb-2 font-sans' />
+                        <br />
+                        <input type="submit" value="Restock" className='bg-lime-500 rounded-lg w-1/2 py-2 text-white text-2xl' />
+                    </form>
                 </div>
             </div>
         </div>
