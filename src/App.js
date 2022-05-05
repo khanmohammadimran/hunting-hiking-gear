@@ -28,7 +28,9 @@ function App() {
           <Equipments></Equipments>
         </RequireAuth>}></Route>
         <Route path='/myitems' element={<MyItems></MyItems>}></Route>
-        <Route path='/additems' element={<AddItems></AddItems>}></Route>
+        <Route path='/additems' element={<RequireAuth>
+          <AddItems></AddItems>
+        </RequireAuth>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
