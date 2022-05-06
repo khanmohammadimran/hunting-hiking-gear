@@ -22,7 +22,7 @@ const Login = () => {
     if (error) {
         return (
             <div>
-                <p><strong class="font-bold text-red-700">Please enter a correct email and password</strong></p>
+                <p><strong className="font-bold text-red-700">Please enter a correct email and password</strong></p>
             </div>
         );
     }

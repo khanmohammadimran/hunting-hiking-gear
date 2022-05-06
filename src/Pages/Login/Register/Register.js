@@ -30,7 +30,7 @@ const Register = () => {
     if (error) {
         return (
             <div>
-                <p><strong class="font-bold text-red-700">Something went Wrong!</strong></p>
+                <p><strong className="font-bold text-red-700">Something went Wrong!</strong></p>
             </div>
         );
     }

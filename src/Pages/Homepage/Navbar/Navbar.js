@@ -31,7 +31,7 @@ const Navbar = () => {
                 <li><CustomLink to="/blog">Blog</CustomLink></li>
                 {
                     user ?
-                        <button onClick={handleSignOut}>Sign Out</button>
+                        <button onClick={handleSignOut}>Log Out</button>
                         :
                         <li><CustomLink to='/login'>Login</CustomLink></li>
                 }
