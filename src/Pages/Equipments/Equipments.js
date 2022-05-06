@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useCustomHook from '../../Hooks/useCustomHook';
 import Equipment from '../Equipment/Equipment';
+import MyItems from '../MyItems/MyItems';
 
 const Equipments = () => {
     const [equipments, setEquipments] = useCustomHook();
@@ -44,6 +45,7 @@ const Equipments = () => {
                         </div>
                     </div>)
                 }
+                <MyItems></MyItems>
             </div>
             <div className="text-center py-8">
                 <button onClick={() => navigate('/additems')} className='bg-lime-500 hover:bg-lime-600 px-16 py-2 w-1/2 rounded-lg text-white text-2xl'>Add Items</button>
