@@ -12,7 +12,6 @@ import Register from './Pages/Login/Register/Register';
 import Notfound from './Pages/NotFound/Notfound';
 import EquipmentDetail from './Pages/EquipmentDetail/EquipmentDetail';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
-import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -48,7 +47,6 @@ function App() {
         <Route path='*' element={<Notfound></Notfound>}></Route>
       </Routes>
       <Footer></Footer>
-      <ToastContainer />
     </div>
   );
 }
