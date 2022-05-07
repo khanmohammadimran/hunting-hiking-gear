@@ -5,6 +5,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ScaleLoader from "react-spinners/ScaleLoader";
 import SocialLogin from '../SocialLogin/SocialLogin';
 import axios from 'axios';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -49,9 +51,15 @@ const Login = () => {
     }
 
 
-    // const navigateRegister = event => {
-    //     navigate('/register')
-    // }
+    const handleForgetPass = () => {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                toast('A reset password link has been sent to your device')
+            })
+    }
+
+
+
     return (
         <div className="sm:object-cover bg-[url('/src/images/equipemnt-homepage-background.png')]">
             <div className='pb-8'>
@@ -63,7 +71,9 @@ const Login = () => {
                     <input value={password} onChange={(e) => setPassword(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" placeholder='Enter Your Password' />
                     <br />
                     <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
+                    <p onClick={handleForgetPass} className='text-2xl font-playfair pt-6 cursor-pointer text-blue-800'>Forget Password?</p>
                     <p className='text-2xl font-playfair pt-6'>New to Hiking Equipment? <Link to='/register' className='cursor-pointer text-blue-800' >Please Register</Link> </p>
+                    <ToastContainer />
                     <SocialLogin></SocialLogin>
                 </form>
             </div>

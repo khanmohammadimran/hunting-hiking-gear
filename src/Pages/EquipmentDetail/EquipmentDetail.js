@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const EquipmentDetail = () => {
     const { equipmentId } = useParams();
@@ -63,6 +64,10 @@ const EquipmentDetail = () => {
                 fetch(url)
                     .then(res => res.json())
                     .then(data => setEquipment(data))
+                event.target.reset();
+                toast('Restock item updated', {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                })
             });
     }
 
@@ -100,6 +105,7 @@ const EquipmentDetail = () => {
                         <br />
                         <input type="submit" value="Restock" className='bg-lime-500 hover:bg-lime-600 rounded-lg w-1/2 py-2 text-white text-2xl' />
                     </form>
+                    <ToastContainer />
                 </div>
             </div>
         </div>
