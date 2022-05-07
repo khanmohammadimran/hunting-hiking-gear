@@ -17,6 +17,22 @@ const MyItems = () => {
     const navigate = useNavigate();
 
 
+    const itemDelete = id => {
+        const proceed = window.confirm('Are you Sure');
+        if (proceed) {
+            const url = `http://localhost:5000/myitem/${id}`
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = myitem.filter(item => item._id !== id)
+                    setMyitem(remaining)
+                })
+        }
+    }
+
 
     useEffect(() => {
         const getMyItem = async () => {
@@ -45,8 +61,18 @@ const MyItems = () => {
 
     return (
         <div>
-            <h2>This is my items{myitem.length}</h2>
-
+            {
+                // myitem.map(item => <div key={myitem._id}>
+                //     <h2>Name: {item.name}</h2>
+                //     <button onClick={() => itemDelete(item._id)}>Delete</button>
+                // </div>)
+                myitem.map(item => <div key={myitem._id}>
+                    <img src={item.img} alt="" />
+                    <h2>Name: {item.name}</h2>
+                    <button onClick={() => itemDelete(item._id)}>Delete</button>
+                </div>)
+            }
+            { }
         </div>
     );
 };
