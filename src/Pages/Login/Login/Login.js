@@ -26,32 +26,19 @@ const Login = () => {
 
 
     let errorMessage;
+
     if (error) {
         alert(error.message,)
-        // errorMessage = <p className="text-danger">{error?.message}</p>;
     } else {
         errorMessage = "";
 
     }
-
-    // if (error) {
-    //     return (
-    //         <div>
-    //             <p><strong className="font-bold text-red-700">Something went Wrong!</strong></p>
-    //         </div>
-    //     );
-    // }
 
     if (loading) {
         return (
             <p className='text-center'><ScaleLoader loading /></p>
         )
     }
-
-
-    // if (user) {
-    //     // navigate(from, { replace: true });
-    // }
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -81,9 +68,9 @@ const Login = () => {
                 <h2 className='text-center py-8 text-lime-500 font-bold text-6xl font-rajdhani'>Please Login</h2>
                 <form onSubmit={handleSubmit} className='md:w-1/2 sm:w-full mx-auto bg-white p-8 rounded-lg'>
                     <h2 className='text-center text-3xl pb-8 font-playfair'>Login to your account</h2>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="email" name="email" placeholder='Enter Your Email' required />
+                    <input onChange={(e) => setEmail(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="email" name="email" placeholder='Enter Your Email' required />
                     <br />
-                    <input value={password} onChange={(e) => setPassword(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" placeholder='Enter Your Password' />
+                    <input onChange={(e) => setPassword(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" placeholder='Enter Your Password' />
                     <br />
                     <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
                     {errorMessage}
