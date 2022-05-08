@@ -7,6 +7,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import axios from 'axios';
 import { sendPasswordResetEmail } from 'firebase/auth';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -22,13 +23,25 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
+
+    let errorMessage;
     if (error) {
-        return (
-            <div>
-                <p><strong className="font-bold text-red-700">Please enter a correct email and password</strong></p>
-            </div>
-        );
+        alert(error.message,)
+        // errorMessage = <p className="text-danger">{error?.message}</p>;
+    } else {
+        errorMessage = "";
+
     }
+
+    // if (error) {
+    //     return (
+    //         <div>
+    //             <p><strong className="font-bold text-red-700">Something went Wrong!</strong></p>
+    //         </div>
+    //     );
+    // }
+
     if (loading) {
         return (
             <p className='text-center'><ScaleLoader loading /></p>
@@ -36,9 +49,9 @@ const Login = () => {
     }
 
 
-    if (user) {
-        // navigate(from, { replace: true });
-    }
+    // if (user) {
+    //     // navigate(from, { replace: true });
+    // }
 
     const handleSubmit = async event => {
         event.preventDefault();
@@ -54,7 +67,9 @@ const Login = () => {
     const handleForgetPass = () => {
         sendPasswordResetEmail(auth, email)
             .then(() => {
-                toast('A reset password link has been sent to your device')
+                toast('A reset password link has been sent to your device', {
+                    position: toast.POSITION.BOTTOM_RIGHT
+                })
             })
     }
 
@@ -71,6 +86,7 @@ const Login = () => {
                     <input value={password} onChange={(e) => setPassword(e.target.value)} className='block w-full border-2 p-4 rounded-lg font-playfair' type="password" placeholder='Enter Your Password' />
                     <br />
                     <input type="submit" className='block w-full border-2 p-4 rounded-lg bg-lime-500 hover:bg-lime-600 text-white text-2xl font-bold font-playfair cursor-pointer' value="login" />
+                    {errorMessage}
                     <p onClick={handleForgetPass} className='text-2xl font-playfair pt-6 cursor-pointer text-blue-800'>Forget Password?</p>
                     <p className='text-2xl font-playfair pt-6'>New to Hiking Equipment? <Link to='/register' className='cursor-pointer text-blue-800' >Please Register</Link> </p>
                     <ToastContainer />

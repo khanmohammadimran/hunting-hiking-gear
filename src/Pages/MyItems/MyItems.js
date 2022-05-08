@@ -43,7 +43,8 @@ const MyItems = () => {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
                 });
-                setMyitem(data);
+                setMyitem(data.myitems);
+                console.log(data)
             }
             catch (error) {
                 console.log(error.message)

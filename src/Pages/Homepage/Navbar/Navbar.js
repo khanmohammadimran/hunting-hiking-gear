@@ -36,7 +36,7 @@ const Navbar = () => {
                         <li><CustomLink to='/login'>Login</CustomLink></li>
                 }
             </ul>
-        </nav>
+        </nav >
     );
 };
 
