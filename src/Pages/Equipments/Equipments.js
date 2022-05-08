@@ -12,7 +12,7 @@ const Equipments = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?')
         if (proceed) {
-            const url = `http://localhost:5000/equipment/${id}`
+            const url = `https://murmuring-harbor-91585.herokuapp.com/equipment/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

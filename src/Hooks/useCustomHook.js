@@ -5,7 +5,7 @@ const useCustomHook = () => {
 
 
     useEffect(() => {
-        fetch('https://hiking-equipment-outdoor-gear.web.app/equipment')
+        fetch('https://murmuring-harbor-91585.herokuapp.com/equipment')
             .then(res => res.json())
             .then(data => setEquipments(data))
     }, [])

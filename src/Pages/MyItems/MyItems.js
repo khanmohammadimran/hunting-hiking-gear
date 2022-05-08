@@ -19,7 +19,7 @@ const MyItems = () => {
     const itemDelete = id => {
         const proceed = window.confirm('Are you Sure');
         if (proceed) {
-            const url = `http://localhost:5000/myitem/${id}`
+            const url = `https://murmuring-harbor-91585.herokuapp.com/myitem/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -36,7 +36,7 @@ const MyItems = () => {
     useEffect(() => {
         const getMyItem = async () => {
             const email = user.email
-            const url = `http://localhost:5000/myitem?email=${email}`
+            const url = `https://murmuring-harbor-91585.herokuapp.com/myitem?email=${email}`
             try {
                 const { data } = await axios.get(url, {
                     headers: {

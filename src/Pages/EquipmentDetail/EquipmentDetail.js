@@ -10,7 +10,7 @@ const EquipmentDetail = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/equipment/${equipmentId}`
+        const url = `https://murmuring-harbor-91585.herokuapp.com/equipment/${equipmentId}`
         console.log(url)
 
         fetch(url)
@@ -21,7 +21,7 @@ const EquipmentDetail = () => {
     const updateQuantity = () => {
         quantity = parseInt(quantity) - 1;
 
-        const url = `http://localhost:5000/equipment/${equipmentId}`
+        const url = `https://murmuring-harbor-91585.herokuapp.com/equipment/${equipmentId}`
         console.log(url)
         fetch(url, {
             method: 'PATCH',
@@ -48,7 +48,7 @@ const EquipmentDetail = () => {
         number = parseInt(number)
         quantity = parseInt(quantity) + number;
         console.log(quantity)
-        const url = `http://localhost:5000/equipment/${equipmentId}`
+        const url = `https://murmuring-harbor-91585.herokuapp.com/equipment/${equipmentId}`
         console.log(url)
         fetch(url, {
             method: 'PATCH',
