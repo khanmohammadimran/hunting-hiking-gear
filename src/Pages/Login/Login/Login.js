@@ -14,7 +14,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname /* || "/" */;
 
     const [
         signInWithEmailAndPassword,
@@ -27,17 +27,25 @@ const Login = () => {
 
     let errorMessage;
 
-    if (error) {
-        alert(error.message,)
-    } else {
-        errorMessage = "";
+    // if (error) {
+    //     alert(error.message,)
+    // } else {
+    //     errorMessage = "";
 
+    // }
+
+    if (error) {
+        errorMessage = <p className='text-red-500'>{error.message}</p>
     }
 
     if (loading) {
         return (
             <p className='text-center'><ScaleLoader loading /></p>
         )
+    }
+
+    if (user) {
+        navigate(from, { replace: true })
     }
 
     const handleSubmit = async event => {
